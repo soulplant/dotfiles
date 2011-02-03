@@ -32,7 +32,6 @@ class Tmux(object):
 		return self._exec('list-clients | grep %s' % session_name) == 0
 	
 	def _exec(self, tmux_command, dir='.'):
-		# TODO Use Popen so we don't have to look at the stdout.
 		return os.system('(cd %s && tmux %s) 2>/dev/null 1>/dev/null' % (dir, tmux_command))
 
 class Workspace(object):
