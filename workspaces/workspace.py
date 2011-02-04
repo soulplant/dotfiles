@@ -1,4 +1,5 @@
 import os
+import re
 from tmux import Tmux
 
 class Workspace(object):
@@ -22,3 +23,14 @@ class Workspace(object):
 
     def has_sessions(self):
         return self._tmux.has_sessions(self.name())
+
+    def note(self):
+        last_comment = None
+        with open(self._filename) as f:
+            line = f.readline()
+            while line:
+                line = line.rstrip()
+                if re.match('#', line):
+                    last_comment = line
+                line = f.readline()
+        return last_comment

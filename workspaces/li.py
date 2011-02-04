@@ -16,11 +16,15 @@ if len(args) == 0:
     # list available workspaces
     ws = all_workspaces()
     for i in range(len(ws)):
-        has_sessions = ws[i].has_sessions()
-        str = ''
+        workspace = ws[i]
+        has_sessions = workspace.has_sessions()
+        star = ''
         if has_sessions:
-            str = ' *'
-        print "%d: %s%s" % (i, ws[i].name(), str)
+            star = ' *'
+        note = workspace.note() or ""
+        if note:
+            note = " " * 16 + note
+        print "%d: %s%s%s" % (i, workspace.name(), star, note)
 else:
     i = int(args[0])
     all_workspaces()[i].open()
