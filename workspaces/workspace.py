@@ -29,6 +29,17 @@ class Workspace(object):
     def has_sessions(self):
         return self._tmux.has_sessions(self.name())
 
+    def summary_line(self):
+        has_sessions = self.has_sessions()
+        star = ''
+        if has_sessions:
+            star = ' *'
+        note = self.note() or ""
+        if note:
+            note = " " * 16 + note
+        return "%s%s%s" % (self.name(), star, note)
+        
+
     def note(self):
         last_comment = None
         with open(self._filename) as f:
