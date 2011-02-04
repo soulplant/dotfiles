@@ -2,9 +2,7 @@ import os
 from tmux import Tmux
 
 class Workspace(object):
-    def test():
-        pass
-
+    WORKSPACE_DIR='.workspaces'
     def __init__(self, filename, tmux = Tmux()):
         self._filename = filename
         self._tmux = tmux

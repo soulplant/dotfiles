@@ -7,10 +7,8 @@ import glob
 import optparse
 from workspace import Workspace
 
-WORKSPACE_DIR='/Users/jameskozianski/.workspaces'
-
 def all_workspaces():
-    return [Workspace(f) for f in glob.glob(os.path.join(WORKSPACE_DIR, '*'))]
+    return [Workspace(f) for f in glob.glob(os.path.join(os.path.expanduser('~'), Workspace.WORKSPACE_DIR, '*'))]
 
 (options, args) = optparse.OptionParser().parse_args()
 
