@@ -49,3 +49,7 @@ class Workspace(object):
                     last_comment = line
                 line = f.readline()
         return last_comment
+
+    def add_note(self, note):
+        with open(self._filename, 'a') as f:
+            f.write('# ' + note + "\n")
