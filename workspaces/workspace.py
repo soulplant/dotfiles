@@ -38,7 +38,6 @@ class Workspace(object):
         if note:
             note = " " * 16 + note
         return "%s%s%s" % (self.name(), star, note)
-        
 
     def note(self):
         last_comment = None
