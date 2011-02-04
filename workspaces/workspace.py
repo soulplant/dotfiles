@@ -1,9 +1,14 @@
+import glob
 import os
 import re
 from tmux import Tmux
 
 class Workspace(object):
     WORKSPACE_DIR='.workspaces'
+    @classmethod
+    def all(cls):
+        return [Workspace(f) for f in glob.glob(os.path.join(os.path.expanduser('~'), Workspace.WORKSPACE_DIR, '*'))]
+        
     def __init__(self, filename, tmux = Tmux()):
         self._filename = filename
         self._tmux = tmux

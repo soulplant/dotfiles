@@ -1,20 +1,15 @@
 #!/usr/bin/python
 
-from __future__ import with_statement
-
 import os
 import glob
 import optparse
 from workspace import Workspace
 
-def all_workspaces():
-    return [Workspace(f) for f in glob.glob(os.path.join(os.path.expanduser('~'), Workspace.WORKSPACE_DIR, '*'))]
-
 (options, args) = optparse.OptionParser().parse_args()
 
 if len(args) == 0:
     # list available workspaces
-    ws = all_workspaces()
+    ws = Workspace.all()
     for i in range(len(ws)):
         workspace = ws[i]
         has_sessions = workspace.has_sessions()
@@ -27,4 +22,4 @@ if len(args) == 0:
         print "%d: %s%s%s" % (i, workspace.name(), star, note)
 else:
     i = int(args[0])
-    all_workspaces()[i].open()
+    Workspace.all()[i].open()
