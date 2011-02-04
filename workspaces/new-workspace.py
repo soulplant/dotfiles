@@ -17,8 +17,8 @@ del(args[0])
 
 files = []
 for arg in args:
-	files.extend(glob.glob(arg))
+    files.extend(glob.glob(arg))
 
 with open(os.path.join(WORKSPACE_DIR, project_name + PROJECT_EXTENSION), 'w') as f:
-	f.write(project_path + "\n\n")
-	[f.write(file + "\n") for file in files]
+    f.write(project_path + "\n\n")
+    [f.write(file + "\n") for file in files]
