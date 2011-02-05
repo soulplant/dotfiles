@@ -21,13 +21,41 @@ class WSPrompt(object):
             self._commands[args[0]].run(ws, args)
         else:
             print "Unknown command: %s" % args[0]
+            print "Valid commands are:"
+            for command_name in self._commands.keys():
+                print "\t%s" % command_name
 
     def prompt_for_workspace(self):
-        if len(self._args) == 0:
-            ws = Workspace.all()
-            for i in range(len(ws)):
-                print "%d: %s" % (i, ws[i].summary_line())
+        no_args = len(self._args) == 0
+        if no_args:
+            self.print_workspaces()
             return (None, [])
-        else:
-            i = int(self._args[0])
-            return (Workspace.all()[i], self._args[1:])
+        i = self._parse_index(self._args[0])
+
+        if i is None:
+            print "Invalid index: %s" % self._args[0]
+            self.print_usage()
+            self.print_workspaces()
+            return (None, [])
+
+        ws = Workspace.all()
+        if i < 0 or i >= len(ws):
+            print "Index out of range: %d" % i
+            self.print_workspaces()
+            return (None, [])
+
+        return (ws[i], self._args[1:])
+
+    def print_workspaces(self):
+        ws = Workspace.all()
+        for i in range(len(ws)):
+            print "%d: %s" % (i, ws[i].summary_line())
+
+    def print_usage(self):
+        print "usage: li [index] [command] [args...]"
+
+    def _parse_index(self, i_str):
+        try:
+            return int(i_str)
+        except ValueError:
+            return None
