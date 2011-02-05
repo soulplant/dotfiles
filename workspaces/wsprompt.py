@@ -21,9 +21,7 @@ class WSPrompt(object):
             self._commands[args[0]].run(ws, args)
         else:
             print "Unknown command: %s" % args[0]
-            print "Valid commands are:"
-            for command_name in self._commands.keys():
-                print "\t%s" % command_name
+            self.print_commands()
 
     def prompt_for_workspace(self):
         no_args = len(self._args) == 0
@@ -53,6 +51,12 @@ class WSPrompt(object):
 
     def print_usage(self):
         print "usage: li [index] [command] [args...]"
+        self.print_commands()
+
+    def print_commands(self):
+        print "Valid commands are:"
+        for command_name in self._commands.keys():
+            print "\t%s" % command_name
 
     def _parse_index(self, i_str):
         try:
