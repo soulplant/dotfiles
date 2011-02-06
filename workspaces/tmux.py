@@ -20,4 +20,4 @@ class Tmux(object):
         return self._exec('list-sessions | grep %s' % session_name) == 0
 
     def _exec(self, tmux_command, dir='.'):
-        return os.system('(cd %s && tmux %s) 2>/dev/null 1>/dev/null' % (dir, tmux_command))
+        return os.system('(cd %s && tmux %s) 1>/dev/null 2>&1' % (dir, tmux_command))
