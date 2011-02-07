@@ -67,7 +67,7 @@ class WSPrompt(object):
         m = re.match('(.*):(\d+)', i_str)
         if m:
             return (m.group(1), int(m.group(2)))
-        m = re.match('\d+', i_str)
+        m = re.match('\d+$', i_str)
         if m:
             return (None, int(i_str))
         return (i_str, None)
