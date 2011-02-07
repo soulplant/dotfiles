@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import optparse
+import re
 from workspace import Workspace
 
 class WSPrompt(object):
@@ -28,15 +29,14 @@ class WSPrompt(object):
         if no_args:
             self.print_workspaces()
             return (None, [])
-        i = self._parse_index(self._args[0])
+        index = self._parse_index(self._args[0])
 
+        (subdir, i) = index
         if i is None:
-            print "Invalid index: %s" % self._args[0]
-            self.print_usage()
-            self.print_workspaces()
+            self.print_workspaces(subdir)
             return (None, [])
 
-        ws = Workspace.all()
+        ws = Workspace.all(subdir)
         if i < 0 or i >= len(ws):
             print "Index out of range: %d" % i
             self.print_workspaces()
@@ -44,8 +44,8 @@ class WSPrompt(object):
 
         return (ws[i], self._args[1:])
 
-    def print_workspaces(self):
-        ws = Workspace.all()
+    def print_workspaces(self, subdir=None):
+        ws = Workspace.all(subdir)
         for i in range(len(ws)):
             print "%d: %s" % (i, ws[i].summary_line())
 
@@ -59,7 +59,15 @@ class WSPrompt(object):
             print "\t%s" % command_name
 
     def _parse_index(self, i_str):
-        try:
-            return int(i_str)
-        except ValueError:
-            return None
+        """Valid formats are
+        subdir:index
+        index
+        subdir
+        """
+        m = re.match('(.*):(\d+)', i_str)
+        if m:
+            return (m.group(1), int(m.group(2)))
+        m = re.match('\d+', i_str)
+        if m:
+            return (None, int(i_str))
+        return (i_str, None)
