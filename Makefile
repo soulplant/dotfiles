@@ -1,14 +1,16 @@
 CXXFLAGS=
 CXX=g++
 
+PROJECT_NAME=file-picker
+
 SRC=main.cc
 OBJ:=$(SRC:cc=o)
 DEPS:=$(SRC:cc=d)
 
-file-picker: $(OBJ)
+$(PROJECT_NAME): $(OBJ)
 	$(CXX) $(OBJ) -o $@
 
-all: file-picker
+all: $(PROJECT_NAME)
 
 .PHONY: all clean
 
@@ -21,4 +23,4 @@ all: file-picker
 include $(DEPS)
 
 clean:
-	rm -f $(OBJ) $(DEPS) file-picker
+	rm -f $(OBJ) $(DEPS) $(PROJECT_NAME)
