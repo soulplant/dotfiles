@@ -21,26 +21,10 @@ function sy {
   cd webkitpy
 }
 
-alias mm='if [ -e .git/refs/heads/master ] ; then echo master ; else echo trunk ; fi'
-alias mh='git merge-base `mm` HEAD'
+source git-shortcuts.sh
 
-alias gc='git commit'
-alias gs='git status'
-alias bs='git branch'
-alias gd='git diff'
-alias gdm='git diff `mh`'
-alias gpl='git log --pretty=oneline'
-alias glf='git log --stat --pretty=oneline'
-alias lm='git ls-files -m'
-alias lo='git ls-files -o'
-alias gg='git diff --name-status --cached'
-alias lf='git diff `mh` --numstat | cut -f 3'
-alias lfd='git diff `mh`'
-alias lc='git diff --cached --numstat | cut -f 3'
+
 alias pc='prepare-ChangeLog --merge-base `mh`'
-alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
-alias ef='lf > ~/.files && vim ~/.files'
-alias es='gs > ~/.status && vim ~/.status'
 function wkg {
   grep -R "$1" $WK/Source/* $2 $3 $4 $5
 }
