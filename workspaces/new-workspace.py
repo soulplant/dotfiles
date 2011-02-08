@@ -6,7 +6,7 @@ import os
 import glob
 import optparse
 
-WORKSPACE_DIR = '/Users/jameskozianski/.workspaces'
+WORKSPACE_DIR = os.path.join(os.path.expanduser('~'), '.workspaces')
 PROJECT_EXTENSION = '.proj'
 
 (options, args) = optparse.OptionParser().parse_args()
