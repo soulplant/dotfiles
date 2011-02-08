@@ -1,25 +1,16 @@
-SDL_LIBS=-L/opt/local/lib -lSDL -lSDLmain -framework Cocoa
-
-CXXFLAGS=-I/opt/local/include/SDL
+CXXFLAGS=
 CXX=g++
 
-SRC=main.cc utils.cc
+SRC=main.cc
 OBJ:=$(SRC:cc=o)
 DEPS:=$(SRC:cc=d)
 
-cppgame: $(OBJ)
-	$(CXX) $(OBJ) $(SDL_LIBS) -o $@
+file-picker: $(OBJ)
+	$(CXX) $(OBJ) -o $@
 
-UTIL_SRC=utils_test.cc utils.cc
-UTIL_OBJ:=$(UTIL_SRC:cc=o)
-UTIL_DEPS:=$(UTIL_SRC:cc=d)
+all: file-picker
 
-utils_test: $(UTIL_OBJ)
-	$(CXX) $(UTIL_OBJ) $(SDL_LIBS) -o $@
-
-all: cppgame utils_test
-
-.PHONY: all
+.PHONY: all clean
 
 %.d: %.cc
 	@set -e ; rm -f $@ ; \
@@ -28,9 +19,6 @@ all: cppgame utils_test
     rm -f $@.$$$$
 
 include $(DEPS)
-include $(UTIL_DEPS)
 
 clean:
-	rm -f $(OBJ) $(DEPS) $(UTIL_OBJ) $(UTIL_DEPS) cppgame utils_test
-
-.PHONY: test
+	rm -f $(OBJ) $(DEPS) file-picker
