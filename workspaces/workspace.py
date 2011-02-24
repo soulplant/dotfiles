@@ -40,10 +40,7 @@ class Workspace(object):
         star = ''
         if has_sessions:
             star = ' *'
-        note = self.note() or ""
-        if note:
-            note = " " * 16 + note
-        return "%s%s%s" % (self.name(), star, note)
+        return "%s%s" % (self.name(), star)
 
     def note(self):
         last_comment = None
