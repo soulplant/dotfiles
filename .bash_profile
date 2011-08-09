@@ -1,6 +1,6 @@
 source ~/.profile
 alias ls='ls -G'
-export PATH=$PATH:$HOME/dev/chromium/third_party/WebKit/Tools/Scripts/:$HOME/dev/bin:$HOME/dev/bin/d:$HOME/bin
+export PATH=$HOME/bin/j701/bin:$PATH:$HOME/dev/chromium/third_party/WebKit/Tools/Scripts/:$HOME/dev/bin:$HOME/dev/bin/d:$HOME/bin
 export PATH=$PATH:$HOME/dev/gyp-read-only
 
 source ~/dev/dotfiles/chrome-shortcuts.sh
