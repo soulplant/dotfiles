@@ -1,0 +1,115 @@
+{
+  "eslint.enable": true,
+  "eslint.options": {
+    // "configFile": "./client/.eslintrc.json",
+  },
+  "eslint.workingDirectories": ["./client"],
+  // "editor.suggestSelection": "first",
+  // "editor.suggest.filteredTypes": {
+  //   "snippet": false,
+  // },
+  // "editor.fontFamily": "Fira Code",
+  "editor.fontFamily": "JetBrains Mono",
+  // "editor.fontFamily": "Iosevka",
+  // "editor.fontSize": 16,
+  // "editor.fontFamily": "Menlo",
+  // "editor.fontFamily": "Essential PragmataPro",
+  "editor.fontSize": 14,
+  // "editor.fontSize": 14,
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
+  "[go]": {
+    // "editor.fontFamily": "Essential PragmataPro",
+    "editor.fontFamily": "JetBrains Mono",
+    // "editor.fontFamily": "Go Mono",
+    "editor.tabSize": 4
+  },
+  "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+  "typescript.suggest.autoImports": true,
+  "[graphql]": {
+    "editor.formatOnSave": true,
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true,
+    },
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true,
+    },
+  },
+  "editor.minimap.enabled": false,
+  "typescriptHero.imports.stringQuoteStyle": "\"",
+  "editor.rulers": [
+    80
+  ],
+  // "editor.snippetSuggestions": "bottom",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/vendor": true
+  },
+  "window.zoomLevel": -1,
+  "workbench.colorCustomizations": {
+    "editorIndentGuide.activeBackground": "#5caa59"
+  },
+  "breadcrumbs.enabled": true,
+  "workbench.settings.editor": "json",
+  "git.autofetch": true,
+  "emmet.showExpandedAbbreviation": "never",
+  "protoc": {
+    "options": [
+      "--proto_path=server",
+    ]
+  },
+  "flow.pathToFlow": "/Users/james/.nvm/versions/node/v9.9.0/bin/flow",
+  "typescript.validate.enable": true,
+  "workbench.editor.highlightModifiedTabs": true,
+  "html.autoClosingTags": false,
+  "diffEditor.renderSideBySide": false,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.accessibilitySupport": "off",
+  "go.useLanguageServer": true,
+  "go.languageServerExperimentalFeatures": {
+    // "diagnostics": true // for diagnostics as you type
+  },
+  // "[go]": {
+  //     "editor.snippetSuggestions": "none",
+  //     "editor.formatOnSave": true,
+  //     "editor.codeActionsOnSave": {
+  //         "source.organizeImports": true
+  //     },
+  // },
+  // "gopls": {
+  //   "usePlaceholders": true, // add parameter placeholders when completing a function
+  //   "enhancedHover": true, // experimental to improve quality of hover (will be on by default soon)
+  // },
+  "terminal.integrated.rendererType": "dom",
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "go.formatTool": "goimports",
+  "gitlens.hovers.currentLine.over": "line",
+  "workbench.colorTheme": "Visual Studio Dark",
+  "problems.showCurrentInStatus": true,
+  "FSharp.useSdkScripts": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "dart.flutterSdkPath": "/Users/james/bin/flutter",
+}

@@ -1,0 +1,16 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {"key": "ctrl+a", "command": "cursorHome", "when": "editorTextFocus"},
+  {
+    "key": "cmd+r",
+    "command": "go.test.cursor"
+  },
+  {
+    "key": "shift+cmd+r",
+    "command": "workbench.action.tasks.build"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "-workbench.action.tasks.build"
+  }
+]
