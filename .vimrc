@@ -54,6 +54,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'junegunn/goyo.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/seoul256.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,7 +84,7 @@ augroup go
   " autocmd FileType go nnoremap { :wa<CR>:GoRun<CR>
   " autocmd FileType go nnoremap } 
 augroup END
-colors solarized
+colors seoul256
 set bg=dark
 " source /Users/jameskozianski/dev/6.824/6.824/src/code.google.com/p/go.tools/cmd/oracle/oracle.vim
 nnoremap <leader>s :Gstatus<CR>
